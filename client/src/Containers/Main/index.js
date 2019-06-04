@@ -4,6 +4,7 @@ import Home from "./../Home";
 import Account from "./../Account";
 import PasswordChange from "./../PasswordChange";
 import Chat from "./../Chat";
+import Queue from "./../Queue";
 import Login from "./../Login";
 import LoginCounsellor from "./../LoginCounsellor";
 import RegisterCounsellor from "./../RegisterCounsellor";
@@ -12,7 +13,6 @@ import PreChatSurvey from "./../PreChatSurvey";
 import Register from "./../Register";
 import SMSSettings from "./../Sms";
 import "./styles.css";
-import CounsellorBar from "../../Components/Counsellor/CounsellorBar";
 
 class Main extends Component {
     render() {
@@ -21,6 +21,7 @@ class Main extends Component {
                 <Switch>
                     <Route exact path="/" component={Home} />
                     <Route path="/chat" component={Chat} />
+                    <Route path="/queue" component={Queue} />
                     <Route path="/account" component={Account} />
                     <Route path="/changepassword" component={PasswordChange} />
                     <Route path="/login" component={Login} />

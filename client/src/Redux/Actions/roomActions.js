@@ -95,3 +95,7 @@ export function findRoomById(id, rooms) {
     });
     return theRoom;
 }
+
+export function joinQueue(userid) {
+    
+}
