@@ -1,4 +1,5 @@
 import {
+    ENTER_ROOM,
     NEW_ROOM,
     UPDATE_ROOM,
     REMOVE_ROOMS,
@@ -12,6 +13,8 @@ import initialState from "./initialState";
 
 export default function roomReducer(state = initialState.room, action) {
     switch (action.type) {
+    case ENTER_ROOM:
+        return { ...state };
     case SET_ACTIVE_ROOM:
         return { ...state, activeRoom: action.roomID };
     case REMOVE_ACTIVE_ROOM:

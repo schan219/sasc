@@ -15,9 +15,9 @@ class ChatInput extends Component {
         this.handleOnSubmit = this.handleOnSubmit.bind(this);
     }
 
-    handleOnChange(ev) {
+    handleOnChange(event) {
         this.setState({
-            input: ev.target.value
+            input: event.target.value
         });
     }
 

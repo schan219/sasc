@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import { bindActionCreators } from "redux";
-import LaunchChat from "./../../Components/Button/LaunchChat";
 import PropTypes from "prop-types";
 import "./styles.css";
 
-class Home extends Component {
+class Queue extends Component {
     constructor(props) {
         super(props);
         this.state = {};
@@ -13,9 +13,8 @@ class Home extends Component {
 
     render() {
         return (
-            <div className="Home">
-                <h2>Home</h2>
-                <LaunchChat history={this.props.history} />
+            <div className="Queue">
+                <h2>Please wait to be connected...</h2>
             </div>
         );
     }
@@ -29,11 +28,11 @@ function mapDispatchToProps(dispatch) {
     return bindActionCreators({}, dispatch);
 }
 
-Home.propTypes = {
+Queue.propTypes = {
     history: PropTypes.object
 };
 
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(Home);
+)(Queue);

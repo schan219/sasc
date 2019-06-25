@@ -57,7 +57,7 @@ export function submitSurvey({ nickname, age, gender, email }, history) {
                         email
                     }
                 });
-                history.push("/chat");
+                history.push("/queue");
             })
             .catch(function(error) {
                 dispatch(userError(error.response.data.error));
