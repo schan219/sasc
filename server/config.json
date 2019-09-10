@@ -1,0 +1,14 @@
+{
+    "db": {
+        "dialect": "mysql",
+        "user": "sasc",
+        "host": "localhost",
+        "database": "chat_dev_db",
+        "password": "",
+        "port": 5432
+    },
+    "jwt_secret": "my secret",
+    "saltRounds": 10,
+    "jwt_issuer": "chat",
+    "hash_secret": "hash secret"
+}
