@@ -5,7 +5,7 @@
         "host": "localhost",
         "database": "chat_dev_db",
         "password": "",
-        "port": 5432
+        "port": 3306
     },
     "jwt_secret": "my secret",
     "saltRounds": 10,

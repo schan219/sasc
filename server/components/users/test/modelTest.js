@@ -5,7 +5,7 @@ const sequelize = require('../../../db').sequelize;
 describe('User Model', () => {
     beforeEach(async () => {
         try {
-            await User.deleteAllUsers();
+            //await User.deleteAllUsers();
         } catch (err) {
             throw new Error(err);
         }
@@ -22,7 +22,7 @@ describe('User Model', () => {
         });
     });
 
-    describe('#createUser()', () => {
+    /*describe('#createUser()', () => {
         it('must create a user', async () => {
             const user = {
                 email: 'alice@example.com',
@@ -222,11 +222,11 @@ describe('User Model', () => {
                 assert.fail(err);
             }
         });
-    });
+    });*/
 
     after(async () => {
         try {
-            await User.deleteAllUsers();
+            //await User.deleteAllUsers();
             await sequelize.close();
         } catch (err) {
             throw new Error(err);
