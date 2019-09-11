@@ -1,3 +1,9 @@
+INSERT INTO user (username, age, gender, phoneNumber, email, password, registered)
+VALUES ("beantdonethat", 0, "cis-woman", "1234567890", "bean@example.com", "password", 1);
+
+INSERT INTO counsellor (firstName, lastName, email, password)
+VALUES ("Meanie", "Blue", "meanieblue@example.com", "password");
+
 INSERT INTO session (ID, beginTime, endTime, counsellorID, userID)
 VALUES (1, "1970-01-01 00:00:01", "1980-01-01 00:00:01", 1, 1);
 

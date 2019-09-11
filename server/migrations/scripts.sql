@@ -1,12 +1,13 @@
 CREATE TABLE user (
 	ID INT NOT NULL AUTO_INCREMENT,
-	username VARCHAR(14),
+	UUID VARCHAR(36) NULL,
+	username VARCHAR(14) NOT NULL,
 	nickname VARCHAR(14),
 	age INT,
 	gender VARCHAR(24),
 	phoneNumber VARCHAR(15),
 	email VARCHAR(72),
-	password VARCHAR(60),
+	password VARCHAR(60) NOT NULL,
 	registered TINYINT(1) NOT NULL,
 	UNIQUE(username),
 	PRIMARY KEY (ID)
@@ -14,6 +15,7 @@ CREATE TABLE user (
 
 CREATE TABLE counsellor (
 	ID INT NOT NULL AUTO_INCREMENT,
+	UUID VARCHAR(36) NULL,
 	firstName VARCHAR(30) NOT NULL,
 	lastName VARCHAR(30) NOT NULL,
 	email VARCHAR(256) NOT NULL,
@@ -24,6 +26,7 @@ CREATE TABLE counsellor (
 
 CREATE TABLE session (
 	ID INT NOT NULL AUTO_INCREMENT,
+	UUID VARCHAR(36) NULL,
 	beginTime TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 	endTime TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 	counsellorID INT NOT NULL,
@@ -34,6 +37,7 @@ CREATE TABLE session (
 
 CREATE TABLE message (
 	ID INT NOT NULL AUTO_INCREMENT,
+	UUID VARCHAR(36) NULL,
 	sessionID INT NOT NULL,
 	messageTime TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
 	counsellorID INT NOT NULL,
@@ -46,3 +50,47 @@ CREATE TABLE message (
 	FOREIGN KEY (counsellorID) REFERENCES counsellor(ID),
 	FOREIGN KEY (userID) REFERENCES user(ID)
 );
+
+DELIMITER ;;
+CREATE TRIGGER before_insert_user
+BEFORE INSERT ON user
+FOR EACH ROW
+BEGIN
+  IF new.UUID IS NULL THEN
+    SET new.UUID = uuid();
+  END IF;
+END
+;;
+
+DELIMITER ;;
+CREATE TRIGGER before_insert_counsellor
+BEFORE INSERT ON counsellor
+FOR EACH ROW
+BEGIN
+  IF new.UUID IS NULL THEN
+    SET new.UUID = uuid();
+  END IF;
+END
+;;
+
+DELIMITER ;;
+CREATE TRIGGER before_insert_session
+BEFORE INSERT ON session
+FOR EACH ROW
+BEGIN
+  IF new.UUID IS NULL THEN
+    SET new.UUID = uuid();
+  END IF;
+END
+;;
+
+DELIMITER ;;
+CREATE TRIGGER before_insert_message
+BEFORE INSERT ON message
+FOR EACH ROW
+BEGIN
+  IF new.UUID IS NULL THEN
+    SET new.UUID = uuid();
+  END IF;
+END
+;;
